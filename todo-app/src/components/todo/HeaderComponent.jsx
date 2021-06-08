@@ -46,7 +46,7 @@ class HeaderComponent extends Component {
                   to="/logout"
                   onClick={AuthenticationService.logout}
                 >
-                  Loout
+                  Logout
                 </Link>
               </li>
             )}
