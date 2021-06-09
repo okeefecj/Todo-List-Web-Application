@@ -30,7 +30,7 @@ class LoginComponent extends Component {
             value={this.state.password}
             onChange={this.handleChange}
           />
-          <button className="btn btn" onClick={this.loginClick}>
+          <button className="btn btn-success" onClick={this.loginClick}>
             {" "}
             Login
           </button>

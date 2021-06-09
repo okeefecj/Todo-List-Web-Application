@@ -7,15 +7,10 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ErrorComponent from "./ErrorComponent.jsx";
 import HeaderComponent from "./HeaderComponent.jsx";
 import FooterComponent from "./FooterComponent.jsx";
-import AuthenticationService from "./AuthenticationService.js";
 import AuthenticatedRoute from "./AuthenticatedRoute.jsx";
 import "./TodoApp.css";
 
 class TodoApp extends Component {
-  constructor() {
-    super();
-  }
-
   render() {
     return (
       <div className="TodoApp">
@@ -31,9 +26,6 @@ class TodoApp extends Component {
           </Switch>
           <FooterComponent />
         </Router>
-
-        {/* <LoginComponent />
-                <Helo /> */}
       </div>
     );
   }
