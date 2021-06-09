@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Link } from "react-router-dom";
-
+import HelloWorldService from "../../api/todo/HelloWorldService.js";
 class Welcome extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <>
@@ -25,7 +22,9 @@ class Welcome extends Component {
   }
 
   retrieveWelcomeMessage = () => {
-    console.log("retrieve clicked");
+    HelloWorldService.executeHelloWorldService().then((response) =>
+      console.log(response)
+    );
   };
 }
 
