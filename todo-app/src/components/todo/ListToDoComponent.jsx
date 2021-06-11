@@ -1,30 +1,21 @@
 import React, { Component } from "react";
+import TodoDataService from "../../api/todo/TodoDataService.js";
+import AuthenticationService from "./AuthenticationService.js";
 
 class ListToDoComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todo: [
-        {
-          id: 1,
-          description: "Learn React",
-          done: false,
-          targetDate: new Date(),
-        },
-        {
-          id: 2,
-          description: "Learn JavaScript",
-          done: false,
-          targetDate: new Date(),
-        },
-        {
-          id: 3,
-          description: "Learn Angular",
-          done: false,
-          targetDate: new Date(),
-        },
-      ],
+      todo: [],
     };
+  }
+
+  componentDidMount() {
+    let username = AuthenticationService.getLoggedInName();
+    TodoDataService.retrieveAllTodos(username).then((response) => {
+      console.log(response);
+      this.setState({ todo: response.data });
+    });
   }
 
   render() {
@@ -45,7 +36,7 @@ class ListToDoComponent extends Component {
               {this.state.todo.map((todo) => (
                 <tr key={todo.id}>
                   <td>{todo.description}</td>
-                  <td>{todo.done.toString()}</td>
+                  <td>{todo.isCompleted.toString()}</td>
                   <td>{todo.targetDate.toString()}</td>
                 </tr>
               ))}
