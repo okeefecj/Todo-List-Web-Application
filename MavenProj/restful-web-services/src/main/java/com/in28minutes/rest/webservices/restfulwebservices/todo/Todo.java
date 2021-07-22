@@ -1,38 +1,49 @@
+
 package com.in28minutes.rest.webservices.restfulwebservices.todo;
 
 import java.util.Date;
 
-public class Todo {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-	private long id;
-	private String userName;
+@Entity
+public class Todo {
+	@Id
+	@GeneratedValue
+	private Long id;
+	private String username;
 	private String description;
 	private Date targetDate;
-	private Boolean isCompleted;
-
-	public Todo(long id, String userName, String description, Date date, Boolean isCompleted) {
-		super();
-		this.id = id;
-		this.userName = userName;
-		this.description = description;
-		this.targetDate = date;
-		this.isCompleted = isCompleted;
+	private boolean isDone;
+	
+	public Todo() {
+		
 	}
 
-	public long getId() {
+	public Todo(long id, String username, String description, Date targetDate, boolean isDone) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.description = description;
+		this.targetDate = targetDate;
+		this.isDone = isDone;
+	}
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getDescription() {
@@ -51,12 +62,12 @@ public class Todo {
 		this.targetDate = targetDate;
 	}
 
-	public Boolean getIsCompleted() {
-		return isCompleted;
+	public boolean isDone() {
+		return isDone;
 	}
 
-	public void setIsCompleted(Boolean isCompleted) {
-		this.isCompleted = isCompleted;
+	public void setDone(boolean isDone) {
+		this.isDone = isDone;
 	}
 
 	@Override
@@ -80,4 +91,6 @@ public class Todo {
 			return false;
 		return true;
 	}
+
+	
 }
